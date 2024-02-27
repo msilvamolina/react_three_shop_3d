@@ -1,9 +1,19 @@
 import React from 'react'
+import {Canvas} from '@react-three/fiber'
 
-const Canvas = () => {
+export const App = () => {
   return (
-    <div>Canvas</div>
+    <Canvas>
+        <Shirt />
+    </Canvas>
   )
 }
 
-export default Canvas
+function Shirt() {
+    return (
+        <mesh>
+            <boxGeometry args={[0.9, 0.9, 0.9]} />
+            <meshNormalMaterial />
+        </mesh>
+    )
+}
