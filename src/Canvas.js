@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import {Canvas} from '@react-three/fiber'
-import {OrbitControls, Center, useGLTF} from '@react-three/drei'
+import {OrbitControls, Center, useGLTF, Environment} from '@react-three/drei'
 
 export const App = ({position=[-1, 0, 2.5], fov=25}) => {
 
@@ -9,6 +9,8 @@ export const App = ({position=[-1, 0, 2.5], fov=25}) => {
         eventSource={document.getElementById('root')}
         eventPrefix='client'
         camera={{position, fov}} >
+        <ambientLight intensity={0.5} />
+        <Environment preset="city"/>
         <Center>
             <Shirt />
         </Center>
