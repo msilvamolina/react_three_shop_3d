@@ -1,6 +1,11 @@
 
 import { Logo } from '@pmndrs/branding'
-import { AiOutlineHighlight, AiOutlineShopping } from 'react-icons/ai'
+import {
+  AiOutlineHighlight,
+  AiOutlineShopping,
+  AiFillCamera,
+  AiOutlineArrowLeft
+} from 'react-icons/ai'
 
 export default function Overlay() {
     return <Customizer />
@@ -64,5 +69,11 @@ function Customizer() {
                 ))}
             </div>
         </div>
+        <button className='share' style={{background: 'black'}}>
+            DOWNLOAD <AiFillCamera size="1.3em"/>
+        </button>
+        <button className='exit' style={{background: 'black'}}>
+            GO BACK <AiOutlineArrowLeft size="1.3em"/>
+        </button>        
     </section>
 }
