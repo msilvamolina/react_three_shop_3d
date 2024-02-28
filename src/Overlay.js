@@ -3,7 +3,7 @@ import { Logo } from '@pmndrs/branding'
 import { AiOutlineHighlight, AiOutlineShopping } from 'react-icons/ai'
 
 export default function Overlay() {
-    return <Intro />
+    return <Customizer />
 }
 
 function Intro() {
@@ -31,4 +31,20 @@ function Intro() {
             </div>
         </section>
     </div>
+}
+
+function Customizer() {
+    const colors = ['black', 'white', 'red', 'blue', 'green', 'yellow']
+    return <section key="custom">
+        <div className='customizer'>
+            <div className='color-options'>
+                {colors.map(color => 
+                <div 
+                    key={color}
+                    className='circle'
+                    style={{background: color}}></div>
+                )}
+            </div>
+        </div>
+    </section>
 }
