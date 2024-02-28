@@ -7,18 +7,25 @@ import {
   AiOutlineArrowLeft
 } from 'react-icons/ai'
 
+import { useSnapshot } from 'valtio'
+import { state } from './store'
+
 export default function Overlay() {
-    return <Customizer />
+    const snap = useSnapshot(state)
+    return (
+        <div className="container">
+            <header>
+                <Logo width="40" height="40" />
+                <AiOutlineShopping size="3em" />
+            </header>
+            {snap.intro ? <Intro /> : <Customizer />}
+           
+        </div>
+        )
 }
 
 function Intro() {
-    return <div className="container">
-        <header>
-            <Logo width="40" height="40" />
-            <AiOutlineShopping size="3em" />
-        </header>
-
-        <section key="main">
+    return <section key="main">
             <div className="section--container">
                 <div>
                     <h1>LET'S DO IT.</h1>
@@ -28,14 +35,13 @@ function Intro() {
                         <p>
                             Create your own custom clothing with our 3D configurator.
                         </p>
-                        <button style={{background: 'black'}}>
+                        <button style={{background: 'black'}} onClick={()=>{state.intro = false}}>
                             CUSTOMIZE IT <AiOutlineHighlight size="1.3em"/> 
                         </button>
                     </div>
                 </div> 
             </div>
         </section>
-    </div>
 }
 
 function Customizer() {
@@ -72,7 +78,7 @@ function Customizer() {
         <button className='share' style={{background: 'black'}}>
             DOWNLOAD <AiFillCamera size="1.3em"/>
         </button>
-        <button className='exit' style={{background: 'black'}}>
+        <button className='exit' style={{background: 'black'}} onClick={()=>{state.intro = true}}>
             GO BACK <AiOutlineArrowLeft size="1.3em"/>
         </button>        
     </section>
