@@ -38,18 +38,22 @@ function Shirt(props) {
 
   const texture = useTexture(`/${snap.selectedDecal}.png`)
 
-  const { nodes, materials } = useGLTF('/shirt_baked_collapsed.glb')
+    const { nodes, materials } = useGLTF("/buzo_starter.glb");
 
   useFrame((state, delta) =>
-    easing.dampC(materials.lambert1.color, snap.selectedColor, 0.25, delta)
+    easing.dampC(materials.Knit_Fleece_Terry_FRONT_54054.color, snap.selectedColor, 0.25, delta)
   )
 
   return (
     <mesh
-      castShadow
-      geometry={nodes.T_Shirt_male.geometry}
-      material={materials.lambert1}
+        castShadow
+        receiveShadow
+      geometry={nodes.buzo.geometry}
+      material={materials.Knit_Fleece_Terry_FRONT_54054}
       material-roughness={1}
+      rotation={[Math.PI / 2, 0, 0]}
+            scale={[0.10, 0.10, 0.10]}
+
       {...props}
       dispose={null}>
       <Decal
@@ -117,4 +121,4 @@ function CameraRig({ children }) {
   return <group ref={group}>{children}</group>
 }
 
-useGLTF.preload('/shirt_baked_collapsed.glb')
+useGLTF.preload('/buzo_starter.glb')
