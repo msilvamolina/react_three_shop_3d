@@ -2,7 +2,9 @@ import React, { useRef } from "react";
 import {Canvas, useFrame} from '@react-three/fiber'
 import {Center, useGLTF, Environment, AccumulativeShadows, RandomizedLight} from '@react-three/drei'
 import { easing } from 'maath'
-
+import { useSnapshot } from 'valtio'
+import { state } from './store'
+import * as THREE from 'three'
 export const App = ({position=[-1, 0, 2.5], fov=25}) => {
 
   return (
@@ -26,6 +28,7 @@ export const App = ({position=[-1, 0, 2.5], fov=25}) => {
 function Shirt(props) {
     const { nodes, materials } = useGLTF("/buzo_starter.glb");
 
+    materials.Knit_Fleece_Terry_FRONT_54054.color = new THREE.Color(0xFF9900)
     return (
     <group {...props} dispose={null}>
       <mesh
@@ -34,6 +37,7 @@ function Shirt(props) {
         receiveShadow
         geometry={nodes.buzo.geometry}
         material={materials.Knit_Fleece_Terry_FRONT_54054}
+        materialroughness={1}
         position={[0, 0, 0]}
         rotation={[Math.PI / 2, 0, 0]}
       />
