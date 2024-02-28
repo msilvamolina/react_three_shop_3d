@@ -28,8 +28,15 @@ export const App = ({position=[-1, 0, 2.5], fov=25}) => {
 function Shirt(props) {
     const snap = useSnapshot(state)
     const { nodes, materials } = useGLTF("/buzo_starter.glb");
-
-    materials.Knit_Fleece_Terry_FRONT_54054.color = new THREE.Color(snap.selectedColor)
+   
+    useFrame((state, delta) => {
+      easing.dampC(
+        materials.Knit_Fleece_Terry_FRONT_54054.color,
+        snap.selectedColor,
+        0.25,
+        delta
+      )
+    })
     return (
     <group {...props} dispose={null}>
       <mesh
