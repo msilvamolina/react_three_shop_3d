@@ -117,4 +117,5 @@ function CameraRig({ children }) {
   return <group ref={group}>{children}</group>
 }
 
-useGLTF.preload('/shirt_baked_collapsed.glb')
+useGLTF.preload('/shirt_baked_collapsed.glb');
+['/react.png', '/three2.png', '/pmndrs.png'].forEach(useTexture.preload)
