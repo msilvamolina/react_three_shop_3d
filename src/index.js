@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom/client';
 import {App as Canvas} from './Canvas';
 import reportWebVitals from './reportWebVitals';
 import './styles.css';
+import Overlay from './Overlay';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Canvas />
+  <>
+    <Canvas />
+    <Overlay />
+  </>
 );
 
 // If you want to start measuring performance in your app, pass a function
