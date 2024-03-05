@@ -19,7 +19,7 @@ const Model = (props) => {
   useFrame((state, delta) =>
     easing.dampC(materials.Material.color, snap.selectedColor, 0.25, delta)
   )
-  return (
+  return snap.selectedModel === props.model && (
     <mesh
     castShadow
         receiveShadow

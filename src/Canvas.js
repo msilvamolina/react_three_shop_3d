@@ -35,13 +35,10 @@ return (
     <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/potsdamer_platz_1k.hdr" />
     
     <CameraRig>
-      {/* <Backdrop /> */}
       <Center>
-        
-        {snap.selectedModel === 'shirt' && <Model model={snap.selectedModel} />}
-        {snap.selectedModel === 'womanTop' && <Model model={snap.selectedModel} />}
-        {snap.selectedModel === 'hoodie' && <Model model={snap.selectedModel} />}
-
+        {snap.models.map((model) =>         
+          <Model model={model} />
+        )}
       </Center>
      <OrbitControls
           // autoRotate
