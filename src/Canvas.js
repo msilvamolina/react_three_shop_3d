@@ -22,8 +22,7 @@ return (
   <>
   <Canvas 
   style={{
-     background: snap.selectedColor,
-    background: `radial-gradient(circle, rgba(255,255,255,1) 0%, ${snap.selectedColor} 100%)`
+    background: `radial-gradient(circle, rgba(255,255,255,1) 0%, ${snap.selectedColor} 100%, #000 130%)`
   
   }}
     shadows

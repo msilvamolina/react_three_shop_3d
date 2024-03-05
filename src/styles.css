@@ -28,13 +28,13 @@ body,
 }
 
 body {
-    background: #f0f0f0;
+    background: #000;
     font-family: 'Inter', sans-serif;
 }
 
 canvas {
-    z-index: 2;
     touch-action: none;
+        transition: all 1.2s ease-out;
 }
 
 /* INTRO */
