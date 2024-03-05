@@ -20,22 +20,20 @@ export const App = ({ position = [0, 0, 2.5], fov = 25 }) => {
 
 return ( 
   <>
-
   <Canvas 
-  
   style={{
-    background: snap.selectedColor,
+     background: snap.selectedColor,
     background: `radial-gradient(circle, rgba(255,255,255,1) 0%, ${snap.selectedColor} 100%)`
-    }}
   
+  }}
     shadows
     gl={{ preserveDrawingBuffer: true }}
     camera={{ position, fov }}
     eventSource={document.getElementById('root')}
+    
     eventPrefix="client">
     <ambientLight intensity={0.5} />
     <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/potsdamer_platz_1k.hdr" />
-
     
     <CameraRig>
       {/* <Backdrop /> */}
@@ -67,7 +65,8 @@ function Shirt(props) {
 
   return (
     <mesh
-      castShadow
+    castShadow
+        receiveShadow
       geometry={nodes.shirt.geometry}
       material={materials.Material}
       material-roughness={1}
@@ -100,9 +99,9 @@ function Backdrop() {
     <AccumulativeShadows
       ref={shadows}
       temporal
-      frames={60}
-      alphaTest={0.85}
-      scale={10}
+      frames={120}
+      alphaTest={1}
+      scale={1}
       rotation={[Math.PI / 2, 0, 0]}
       position={[0, 0, -0.14]}>
       <RandomizedLight
