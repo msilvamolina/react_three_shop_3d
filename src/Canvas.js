@@ -36,7 +36,7 @@ return (
         <Shirt />
       </Center>
      <OrbitControls
-          autoRotate
+          // autoRotate
           // enableZoom={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
@@ -64,7 +64,7 @@ function Shirt(props) {
       {...props}
       dispose={null}>
       <Decal
-        position={[0, 0.04, 0.15]}
+        position={[0, 0.34, 0.12]}
         rotation={[0, 0, 0]}
         scale={0.15}
         opacity={0.7}
