@@ -40,6 +40,7 @@ return (
     <CameraRig>
       {/* <Backdrop /> */}
       <Center>
+        
         <Shirt />
       </Center>
      <OrbitControls
@@ -54,10 +55,11 @@ return (
 
 function Shirt(props) {
   const snap = useSnapshot(state)
-
   const texture = useTexture(`/${snap.selectedDecal}.png`)
 
-  const { nodes, materials } = useGLTF('/shirt_baked_martin2.glb')
+
+
+  const { nodes, materials } = useGLTF(`/${snap.selectedModel}.glb`)
 
   useFrame((state, delta) =>
     easing.dampC(materials.Material.color, snap.selectedColor, 0.25, delta)
@@ -66,10 +68,10 @@ function Shirt(props) {
   return (
     <mesh
       castShadow
-      geometry={nodes.buzo.geometry}
+      geometry={nodes.shirt.geometry}
       material={materials.Material}
-      // material-roughness={1}
-      // {...props}
+      material-roughness={1}
+      {...props}
       dispose={null}>
       <Decal
         position={[0, 0.34, 0.12]}
@@ -143,5 +145,5 @@ function CameraRig({ children }) {
   return <group ref={group}>{children}</group>
 }
 
-useGLTF.preload('/shirt_baked_martin2.glb')
+useGLTF.preload('/shirt.glb')
 ;['/react.png', '/three2.png', '/pmndrs.png'].forEach(useTexture.preload)
