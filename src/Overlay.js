@@ -85,6 +85,19 @@ function Customizer({ config }) {
           ))}
         </div>
 
+        <div className="models">
+          <div className="models--container">
+            {snap.models.map((model) => (
+              <div
+                key={model}
+                className="decal"
+                onClick={() => (state.selectedModel = model)}>
+                <img src={model + '_thumb.png'} alt="brand" />
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="decals">
           <div className="decals--container">
             {snap.decals.map((decal) => (

@@ -12,8 +12,10 @@ const state = proxy({
     'cyan'
   ],
   decals: ['react', 'three2', 'pmndrs'],
+  models: ['shirt', 'hoodie'],
   selectedColor: '#EFBD4E',
-  selectedDecal: 'three2'
+  selectedDecal: 'three2',
+  selectedModel: 'shirt'
 })
 
 export { state }

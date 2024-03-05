@@ -184,6 +184,17 @@ button:hover {
     cursor: pointer;
 }
 
+.models--container {
+    display: flex;
+    gap: 20px;
+}
+
+.models {
+    position: absolute;
+    left: 0px;
+    top: 50%;
+}
+
 /* DECALS */
 .decals--container {
     display: flex;
@@ -203,6 +214,18 @@ button:hover {
 }
 
 .decals img:hover {
+    filter: none;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.models img {
+    width: 24px;
+    filter: saturate(0) invert(1) brightness(5.5);
+    transition: all 0.2s ease-in-out;
+}
+
+.models img:hover {
     filter: none;
     transform: scale(1.2);
     cursor: pointer;
