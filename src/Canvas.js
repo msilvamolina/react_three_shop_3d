@@ -49,11 +49,11 @@ function Shirt(props) {
 
   const texture = useTexture(`/${snap.selectedDecal}.png`)
 
-  const { nodes, materials } = useGLTF('/untitled.glb')
+  const { nodes, materials } = useGLTF('/shirt_baked_martin2.glb')
 
-  // useFrame((state, delta) =>
-  //   easing.dampC(materials.lambert1.color, snap.selectedColor, 0.25, delta)
-  // )
+  useFrame((state, delta) =>
+    easing.dampC(materials.lambert1.color, snap.selectedColor, 0.25, delta)
+  )
 
   return (
     <mesh
@@ -135,5 +135,5 @@ function CameraRig({ children }) {
   return <group ref={group}>{children}</group>
 }
 
-useGLTF.preload('/untitled.glb')
+useGLTF.preload('/shirt_baked_martin2.glb')
 ;['/react.png', '/three2.png', '/pmndrs.png'].forEach(useTexture.preload)
