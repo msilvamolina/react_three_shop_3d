@@ -18,7 +18,9 @@ import { state } from './store'
 export const App = ({ position = [0, 0, 2.5], fov = 25 }) => {
   const snap = useSnapshot(state)
 
-return (  
+return ( 
+  <>
+
   <Canvas 
   
   style={{
@@ -47,6 +49,7 @@ return (
           // minPolarAngle={Math.PI / 2}
         />    </CameraRig>
   </Canvas>
+  </>
 )}
 
 function Shirt(props) {
