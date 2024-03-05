@@ -37,9 +37,9 @@ return (
       </Center>
      <OrbitControls
           // autoRotate
-          // enableZoom={false}
-          maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
+          // // enableZoom={false}
+          // maxPolarAngle={Math.PI / 2}
+          // minPolarAngle={Math.PI / 2}
         />    </CameraRig>
   </Canvas>
 )}
@@ -52,16 +52,16 @@ function Shirt(props) {
   const { nodes, materials } = useGLTF('/shirt_baked_martin2.glb')
 
   useFrame((state, delta) =>
-    easing.dampC(materials.ropa2.color, snap.selectedColor, 0.25, delta)
+    easing.dampC(materials.Material.color, snap.selectedColor, 0.25, delta)
   )
 
   return (
     <mesh
       castShadow
       geometry={nodes.buzo.geometry}
-      material={materials.ropa2}
-      material-roughness={1}
-      {...props}
+      material={materials.Material}
+      // material-roughness={1}
+      // {...props}
       dispose={null}>
       <Decal
         position={[0, 0.34, 0.12]}
