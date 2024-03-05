@@ -19,7 +19,12 @@ export const App = ({ position = [0, 0, 2.5], fov = 25 }) => {
   const snap = useSnapshot(state)
 
 return (  
-  <Canvas style={{background: snap.selectedColor}}
+  <Canvas 
+  
+  style={{
+    background: snap.selectedColor,
+    background: `radial-gradient(circle, rgba(255,255,255,1) 0%, ${snap.selectedColor} 100%)`
+    }}
   
     shadows
     gl={{ preserveDrawingBuffer: true }}
@@ -31,7 +36,7 @@ return (
 
     
     <CameraRig>
-      <Backdrop />
+      {/* <Backdrop /> */}
       <Center>
         <Shirt />
       </Center>
