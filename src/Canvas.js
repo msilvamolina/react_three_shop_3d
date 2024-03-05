@@ -9,13 +9,18 @@ import {
   AccumulativeShadows,
   RandomizedLight,
   useTexture,
-  Decal
+  Decal,
+  OrbitControls
 } from '@react-three/drei'
 import { useSnapshot } from 'valtio'
 import { state } from './store'
 
-export const App = ({ position = [0, 0, 2.5], fov = 25 }) => (
-  <Canvas
+export const App = ({ position = [0, 0, 2.5], fov = 25 }) => {
+  const snap = useSnapshot(state)
+
+return (  
+  <Canvas style={{background: snap.selectedColor}}
+  
     shadows
     gl={{ preserveDrawingBuffer: true }}
     camera={{ position, fov }}
@@ -24,25 +29,31 @@ export const App = ({ position = [0, 0, 2.5], fov = 25 }) => (
     <ambientLight intensity={0.5} />
     <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/potsdamer_platz_1k.hdr" />
 
+    
     <CameraRig>
       <Backdrop />
       <Center>
         <Shirt />
       </Center>
-    </CameraRig>
+     <OrbitControls
+          autoRotate
+          // enableZoom={false}
+          maxPolarAngle={Math.PI / 2}
+          minPolarAngle={Math.PI / 2}
+        />    </CameraRig>
   </Canvas>
-)
+)}
 
 function Shirt(props) {
   const snap = useSnapshot(state)
 
   const texture = useTexture(`/${snap.selectedDecal}.png`)
 
-  const { nodes, materials } = useGLTF('/shirt_baked_collapsed.glb')
+  const { nodes, materials } = useGLTF('/untitled.glb')
 
-  useFrame((state, delta) =>
-    easing.dampC(materials.lambert1.color, snap.selectedColor, 0.25, delta)
-  )
+  // useFrame((state, delta) =>
+  //   easing.dampC(materials.lambert1.color, snap.selectedColor, 0.25, delta)
+  // )
 
   return (
     <mesh
@@ -70,7 +81,7 @@ function Backdrop() {
     easing.dampC(
       shadows.current.getMesh().material.color,
       state.selectedColor,
-      0.25,
+      1,
       delta
     )
   )
@@ -107,22 +118,22 @@ function CameraRig({ children }) {
 
   const snap = useSnapshot(state)
 
-  useFrame((state, delta) => {
-    easing.damp3(
-      state.camera.position,
-      [snap.intro ? -state.viewport.width / 4 : 0, 0, 2],
-      0.25,
-      delta
-    )
-    easing.dampE(
-      group.current.rotation,
-      [state.pointer.y / 10, -state.pointer.x / 5, 0],
-      0.25,
-      delta
-    )
-  })
+  // useFrame((state, delta) => {
+  //   easing.damp3(
+  //     state.camera.position,
+  //     [snap.intro ? -state.viewport.width / 4 : 0, 0, 2],
+  //     0.25,
+  //     delta
+  //   )
+  //   easing.dampE(
+  //     group.current.rotation,
+  //     [state.pointer.y / 10, -state.pointer.x / 5, 0],
+  //     0.25,
+  //     delta
+  //   )
+  // })
   return <group ref={group}>{children}</group>
 }
 
-useGLTF.preload('/shirt_baked_collapsed.glb')
+useGLTF.preload('/untitled.glb')
 ;['/react.png', '/three2.png', '/pmndrs.png'].forEach(useTexture.preload)
