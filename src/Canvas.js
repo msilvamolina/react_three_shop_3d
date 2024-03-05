@@ -52,14 +52,14 @@ function Shirt(props) {
   const { nodes, materials } = useGLTF('/shirt_baked_martin2.glb')
 
   useFrame((state, delta) =>
-    easing.dampC(materials.lambert2.color, snap.selectedColor, 0.25, delta)
+    easing.dampC(materials.ropa2.color, snap.selectedColor, 0.25, delta)
   )
 
   return (
     <mesh
       castShadow
       geometry={nodes.buzo.geometry}
-      material={materials.lambert2}
+      material={materials.ropa2}
       material-roughness={1}
       {...props}
       dispose={null}>
