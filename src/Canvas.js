@@ -1,7 +1,6 @@
 import { useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { easing } from 'maath'
-
 import {
   useGLTF,
   Environment,
@@ -12,9 +11,10 @@ import {
   Decal,
   OrbitControls
 } from '@react-three/drei'
+
 import { useSnapshot } from 'valtio'
 import { state } from './store'
-
+import Model from './models/Model'
 export const App = ({ position = [0, 0, 2.5], fov = 25 }) => {
   const snap = useSnapshot(state)
 
@@ -38,7 +38,10 @@ return (
       {/* <Backdrop /> */}
       <Center>
         
-        <Shirt />
+        {snap.selectedModel === 'shirt' && <Model model={snap.selectedModel} />}
+        {snap.selectedModel === 'womanTop' && <Model model={snap.selectedModel} />}
+        {snap.selectedModel === 'hoodie' && <Model model={snap.selectedModel} />}
+
       </Center>
      <OrbitControls
           // autoRotate
@@ -54,18 +57,14 @@ function Shirt(props) {
   const snap = useSnapshot(state)
   const texture = useTexture(`/${snap.selectedDecal}.png`)
 
-
-
-  const { nodes, materials } = useGLTF(`/${snap.selectedModel}.glb`)
-
+  const { nodes, materials } = useGLTF('/shirt.glb')
   useFrame((state, delta) =>
     easing.dampC(materials.Material.color, snap.selectedColor, 0.25, delta)
   )
-
   return (
     <mesh
-    castShadow
-        receiveShadow
+      castShadow
+      receiveShadow
       geometry={nodes.shirt.geometry}
       material={materials.Material}
       material-roughness={1}
