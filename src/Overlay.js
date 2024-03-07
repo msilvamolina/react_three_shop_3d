@@ -83,7 +83,7 @@ function Intro({ config }) {
   )
 }
 
-const options = ['Create a merge commit', 'Squash and merge', 'Rebase and merge'];
+const options = ['man', 'woman', 'children', 'shopping-bag'];
 
 function Customizer({ config }) {
   const snap = useSnapshot(state)
@@ -131,7 +131,7 @@ const [open, setOpen] = React.useState(false);
         ref={anchorRef}
         aria-label="Button group with a nested menu"
       >
-        <Button onClick={handleClick}>{options[selectedIndex]}</Button>
+        <Button className='buttonsContainer' onClick={handleClick}> <img src={`/img/` + options[selectedIndex] + `.png`} /></Button>
         <Button
           size="small"
           aria-controls={open ? 'split-button-menu' : undefined}
@@ -167,11 +167,10 @@ const [open, setOpen] = React.useState(false);
                   {options.map((option, index) => (
                     <MenuItem
                       key={option}
-                      disabled={index === 2}
                       selected={index === selectedIndex}
                       onClick={(event) => handleMenuItemClick(event, index)}
                     >
-                      {option}
+                      <img src={`/img/` + option + `.png`} />
                     </MenuItem>
                   ))}
                 </MenuList>

@@ -221,10 +221,12 @@ button:hover {
 
 .models img {
     width: 24px;
-    filter: saturate(0) invert(1) brightness(5.5);
     transition: all 0.2s ease-in-out;
 }
 
+.models .buttonsContainer img {
+    filter: saturate(0) invert(1) brightness(5.5);
+}
 .models img:hover {
     filter: none;
     transform: scale(1.2);
