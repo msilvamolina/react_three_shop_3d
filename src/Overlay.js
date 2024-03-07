@@ -94,14 +94,18 @@ function Customizer({ config }) {
     setSelectedWomanIndex(0);
     setSelectedKidIndex(0);
     setSelectedIndex(index);
-    let option = options[index];
-    alert(option);
+    
+    if(index===0){
+      let option = optionsMan[index];
+      state.selectedModel = option;
+    }
+
   }
 
   function onOptionsChangeMan(index) {
     setSelectedManIndex(index);
     let option = optionsMan[index];
-    alert(option);
+    state.selectedModel = option;
   }
 
   function onOptionsChangeWoman(index) {
