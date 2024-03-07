@@ -192,10 +192,6 @@ button:hover {
 .models {
     position: absolute;
     top: 40px;
-        right: 40px;
-    /* position: absolute;
-    left: 0px;
-    top: 50%; */
 }
 
 /* DECALS */
@@ -250,6 +246,11 @@ button:hover {
 
 /* MOBILE ADJUSTMENTS */
 @media screen and (max-width: 600px) {
+    .models {
+        position: absolute;
+        top: 40px;
+        right: 40px;
+    }
     .section--container {
         margin-left: 15vw;
     }
