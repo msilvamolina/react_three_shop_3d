@@ -15,7 +15,8 @@ const state = proxy({
   models: ['shirt', 'hoodie', 'womanShirt', 'long-sleeves-man', 'womanTop', 'womanShirt2', 'womanShirtLong', 'kidShirt', 'bolso', 'womanShirtDress', 'tank-top', 'baby'],
   selectedColor: '#EFBD4E',
   selectedDecal: null,
-  selectedModel: 'shirt'
+  selectedModel: 'shirt',
+  finalShirtSnapshot: null,
 })
 
 export { state }

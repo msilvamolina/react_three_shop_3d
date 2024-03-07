@@ -149,8 +149,9 @@ function Customizer({ config }) {
                 .querySelector('canvas')
                 .toDataURL('image/png')
                 .replace('image/png', 'image/octet-stream');
-
-    setFinalShirtSnapshot(result);
+    
+    state.finalShirtSnapshot = result;
+    // setFinalShirtSnapshot(result);
 
     setOpenModal(true);
   }
