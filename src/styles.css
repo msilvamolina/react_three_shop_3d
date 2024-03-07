@@ -191,8 +191,11 @@ button:hover {
 
 .models {
     position: absolute;
+    top: 40px;
+        right: 40px;
+    /* position: absolute;
     left: 0px;
-    top: 50%;
+    top: 50%; */
 }
 
 /* DECALS */

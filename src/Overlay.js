@@ -34,9 +34,7 @@ export default function Overlay() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ type: 'spring', duration: 1.8, delay: 1 }}>
         <Logo width="40" height="40" />
-        <div>
-          <AiOutlineShopping size="3em" />
-        </div>
+   
       </header>
 
       <AnimatePresence>
@@ -109,11 +107,8 @@ function Customizer({ config }) {
         </div>
 
         <div className="models">
-          <ButtonGroupDropdown onOptionsChange={onOptionsChange} options={options} selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex}/>
-          {selectedIndex===0 && <ButtonGroupDropdown onOptionsChange={onOptionsChange}  text={false} options={optionsMan} selectedIndex={selectedManIndex} setSelectedIndex={setSelectedManIndex}/>}
-           {selectedIndex===1 &&<ButtonGroupDropdown onOptionsChange={onOptionsChange}  text={false} options={optionsWoman} selectedIndex={selectedWomanIndex} setSelectedIndex={setSelectedWomanIndex}/>}
-           {selectedIndex===2 &&<ButtonGroupDropdown onOptionsChange={onOptionsChange}  text={false} options={optionsKid} selectedIndex={selectedKidIndex} setSelectedIndex={setSelectedKidIndex}/>}
-            {selectedIndex!==3 && <ButtonGroupDropdown text={true} onOptionsChange={onOptionsChange}  options={optionsSizes} selectedIndex={selectedSizesIndex} setSelectedIndex={setSelectedSizesIndex}/>}
+
+            {/* {selectedIndex!==3 && <ButtonGroupDropdown text={true} onOptionsChange={onOptionsChange}  options={optionsSizes} selectedIndex={selectedSizesIndex} setSelectedIndex={setSelectedSizesIndex}/>} */}
 
           {/* <div className="models--container">
             <Button variant="contained"><img src="/img/man.png" /></Button>
@@ -183,7 +178,13 @@ function Customizer({ config }) {
             ))}
           </div>
         </div>
-
+        <div className='models'>
+          <ButtonGroupDropdown onOptionsChange={onOptionsChange} options={options} selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex}/>
+          &nbsp;
+          {selectedIndex===0 && <ButtonGroupDropdown onOptionsChange={onOptionsChange}  text={false} options={optionsMan} selectedIndex={selectedManIndex} setSelectedIndex={setSelectedManIndex}/>}
+           {selectedIndex===1 &&<ButtonGroupDropdown onOptionsChange={onOptionsChange}  text={false} options={optionsWoman} selectedIndex={selectedWomanIndex} setSelectedIndex={setSelectedWomanIndex}/>}
+           {selectedIndex===2 &&<ButtonGroupDropdown onOptionsChange={onOptionsChange}  text={false} options={optionsKid} selectedIndex={selectedKidIndex} setSelectedIndex={setSelectedKidIndex}/>}
+           </div>
         <button
           className="share"
           style={{ background: snap.selectedColor }}
@@ -203,13 +204,13 @@ function Customizer({ config }) {
           <AiFillCamera size="1.3em" />
         </button>
 
-        <button
+        {/* <button
           className="exit"
           style={{ background: snap.selectedColor }}
           onClick={() => (state.intro = true)}>
           GO BACK
           <AiOutlineArrowLeft size="1.3em" />
-        </button>
+        </button> */}
       </div>
     </motion.section>
   )
