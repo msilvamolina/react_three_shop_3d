@@ -88,6 +88,8 @@ function Customizer({ config }) {
   const [selectedWomanIndex, setSelectedWomanIndex] = React.useState(0);
   const [selectedKidIndex, setSelectedKidIndex] = React.useState(0);
   const [selectedSizesIndex, setSelectedSizesIndex] = React.useState(0);
+  const [finalShirtSnapshot, setFinalShirtSnapshot] = React.useState(null);
+
   const [file, setFile] = React.useState('');
 
 
@@ -133,16 +135,21 @@ function Customizer({ config }) {
 
   const uploadImage = () => {
     if(file == '') {
-      return handleDecals(null);
+      return state.selectedDecal = null;
     }
     reader(file)
       .then((result) => {
-        handleDecals(result);
+         state.selectedDecal = result;
       })
   }
 
-  function handleDecals(result) {
-    state.selectedDecal = result;
+  function downloadImage() {
+    let result = document
+                .querySelector('canvas')
+                .toDataURL('image/png')
+                .replace('image/png', 'image/octet-stream');
+                
+    setFinalShirtSnapshot(result);
   }
 
   return (
@@ -244,18 +251,20 @@ function Customizer({ config }) {
         <button
           className="share"
           style={{ background: snap.selectedColor }}
-          onClick={() => {
-            const link = document.createElement('a')
-            link.setAttribute('download', 'canvas.png')
-            link.setAttribute(
-              'href',
-              document
-                .querySelector('canvas')
-                .toDataURL('image/png')
-                .replace('image/png', 'image/octet-stream')
-            )
-            link.click()
-          }}>
+          onClick={downloadImage}
+          // onClick={() => {
+          //   const link = document.createElement('a')
+          //   link.setAttribute('download', 'canvas.png')
+          //   link.setAttribute(
+          //     'href',
+          //     document
+          //       .querySelector('canvas')
+          //       .toDataURL('image/png')
+          //       .replace('image/png', 'image/octet-stream')
+          //   )
+          //   link.click()
+          // }}
+          >
           DOWNLOAD
           <AiFillCamera size="1.3em" />
         </button>
