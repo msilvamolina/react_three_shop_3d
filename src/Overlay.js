@@ -78,11 +78,15 @@ function Intro({ config }) {
 
 const options = ['man', 'woman', 'children', 'shopping-bag'];
 const optionsMan = ['tshirt', 'long-sleeves-t-shirt', 'hoodie', 'tank-top'];
+const optionsWoman = ['clothes-3', 'women', 'shirt-2', 'shirt-1', 'long-sleeve-1'];
+const optionsKid = ['shirt', 'clothing'];
 
 function Customizer({ config }) {
   const snap = useSnapshot(state)
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [selectedManIndex, setSelectedManIndex] = React.useState(0);
+  const [selectedWomanIndex, setSelectedWomanIndex] = React.useState(0);
+  const [selectedKidIndex, setSelectedKidIndex] = React.useState(0);
 
 
   return (
@@ -100,9 +104,11 @@ function Customizer({ config }) {
 
         <div className="models">
           <ButtonGroupDropdown options={options} selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex}/>
-          <ButtonGroupDropdown options={optionsMan} selectedIndex={selectedManIndex} setSelectedIndex={setSelectedManIndex}/>
+          {selectedIndex===0 && <ButtonGroupDropdown options={optionsMan} selectedIndex={selectedManIndex} setSelectedIndex={setSelectedManIndex}/>}
+           {selectedIndex===1 &&<ButtonGroupDropdown options={optionsWoman} selectedIndex={selectedWomanIndex} setSelectedIndex={setSelectedWomanIndex}/>}
+           {selectedIndex===2 &&<ButtonGroupDropdown options={optionsKid} selectedIndex={selectedKidIndex} setSelectedIndex={setSelectedKidIndex}/>}
 
-          <div className="models--container">
+          {/* <div className="models--container">
             <Button variant="contained"><img src="/img/man.png" /></Button>
             <Button variant="contained" ><img src="/img/woman.png" /></Button>
             <Button variant="contained"><img src="/img/children.png" /></Button>
@@ -135,7 +141,7 @@ function Customizer({ config }) {
             <Button variant="contained">M</Button>
             <Button variant="contained">L</Button>
             <Button variant="contained">XL</Button>
-          </div>          
+          </div>           */}
 {/* <ToggleButtonGroup
   color="primary"
   exclusive
