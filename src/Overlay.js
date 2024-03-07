@@ -8,6 +8,9 @@ import {
 import { useSnapshot } from 'valtio'
 import { state } from './store'
 import { motion, AnimatePresence } from 'framer-motion'
+import Button from '@mui/material/Button';
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 export default function Overlay() {
   const snap = useSnapshot(state)
@@ -85,18 +88,45 @@ function Customizer({ config }) {
           ))}
         </div>
 
-        {/* <div className="models">
+        <div className="models">
           <div className="models--container">
-            {snap.models.map((model) => (
+            <Button variant="contained"><img src="/img/man.png" /></Button>
+            <Button variant="contained" ><img src="/img/woman.png" /></Button>
+            <Button variant="contained"><img src="/img/children.png" /></Button>
+            <Button variant="contained"><img src="/img/shopping-bag.png" /></Button>
+            </div>
+          <br />
+          <div className="models--container">
+            <Button variant="contained"><img src="/img/tshirt.png" /></Button>
+          </div>
+          <br />
+          <div className="models--container">
+            <Button variant="contained">S</Button>
+            <Button variant="contained">M</Button>
+            <Button variant="contained">L</Button>
+            <Button variant="contained">XL</Button>
+          </div>          
+{/* <ToggleButtonGroup
+  color="primary"
+  exclusive
+  value='android'
+  aria-label="Platform"
+>
+  <ToggleButton value="web"><img src="/img/man.png" /></ToggleButton>
+  <ToggleButton value="android">Android</ToggleButton>
+  <ToggleButton value="ios">iOS</ToggleButton>
+</ToggleButtonGroup> */}
+            
+            {/* {snap.models.map((model) => (
               <div
                 key={model}
                 className="decal"
                 onClick={() => (state.selectedModel = model)}>
                 <img src={model + '_thumb.png'} alt="brand" />
               </div>
-            ))}
-          </div>
-        </div> */}
+            ))} */}
+          
+        </div>
 
         <div className="decals">
           <div className="decals--container">
