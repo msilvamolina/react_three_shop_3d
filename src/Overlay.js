@@ -76,7 +76,7 @@ function Intro({ config }) {
 
 const options = ['man', 'woman', 'children', 'shopping-bag'];
 const optionsMan = ['shirt', 'long-sleeves-man', 'hoodie', 'tank-top'];
-const optionsWoman = ['womanShirt', 'womanShirtDress', 'shirt-2', 'shirt-1', 'long-sleeve-1'];
+const optionsWoman = ['womanShirt', 'womanShirtDress', 'womanShirt2', 'womanTop', 'womanShirtLong'];
 const optionsKid = ['shirt4', 'clothing'];
 const optionsSizes = ['S', 'M', 'L', 'XL', 'XXL'];
 
