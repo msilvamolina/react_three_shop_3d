@@ -85,7 +85,7 @@ function Customizer({ config }) {
           ))}
         </div>
 
-        <div className="models">
+        {/* <div className="models">
           <div className="models--container">
             {snap.models.map((model) => (
               <div
@@ -96,7 +96,7 @@ function Customizer({ config }) {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         <div className="decals">
           <div className="decals--container">
