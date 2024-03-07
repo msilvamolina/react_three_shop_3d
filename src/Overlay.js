@@ -74,10 +74,10 @@ function Intro({ config }) {
   )
 }
 
-const options = ['man', 'woman', 'children', 'shopping-bag'];
+const options = ['man', 'woman', 'children', 'bolso'];
 const optionsMan = ['shirt', 'long-sleeves-man', 'hoodie', 'tank-top'];
 const optionsWoman = ['womanShirt', 'womanShirtDress', 'womanShirt2', 'womanTop', 'womanShirtLong'];
-const optionsKid = ['shirt4', 'clothing'];
+const optionsKid = ['kidShirt', 'baby'];
 const optionsSizes = ['S', 'M', 'L', 'XL', 'XXL'];
 
 function Customizer({ config }) {
@@ -101,6 +101,14 @@ function Customizer({ config }) {
     if(index===1){
       onOptionsChangeWoman(0);
     }
+
+    if(index===2){
+      onOptionsChangeKid(0);
+    }
+
+    if(index===3){
+      state.selectedModel = options[index];
+    }
   }
 
   function onOptionsChangeMan(index) {
@@ -118,7 +126,7 @@ function Customizer({ config }) {
   function onOptionsChangeKid(index) {
     setSelectedKidIndex(index);
     let option = optionsKid[index];
-    alert(option);
+    state.selectedModel = option;
   }
 
   return (
