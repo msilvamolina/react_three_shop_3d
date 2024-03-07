@@ -15,7 +15,7 @@ const Model = (props) => {
   const snap = useSnapshot(state)
   const texture = useTexture(`/${snap.selectedDecal}.png`)
 
-  const { nodes, materials } = useGLTF(`/${props.model}.glb`)
+  const { nodes, materials } = useGLTF(`/models/${props.model}.glb`)
   useFrame((state, delta) =>
     easing.dampC(materials.Material.color, snap.selectedColor, 0.25, delta)
   )
