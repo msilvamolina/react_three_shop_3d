@@ -14,11 +14,12 @@ const ButtonGroupDropdown = (props) => {
   const [open, setOpen] = React.useState(false);
 
   const handleClick = () => {
-    // console.info(`You clicked ${options[selectedIndex]}`);
   };
 
   const handleMenuItemClick = (event, index) => {
     props.setSelectedIndex(index);
+    props.onOptionsChange();
+
     setOpen(false);
   };
 
