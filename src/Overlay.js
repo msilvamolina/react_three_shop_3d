@@ -129,6 +129,9 @@ function Customizer({ config }) {
     state.selectedModel = option;
   }
 
+  function uploadImage() {
+    alert('upload image');
+  }
   return (
     <motion.section {...config}>
       <div className="customizer">
@@ -204,14 +207,12 @@ function Customizer({ config }) {
 
         <div className="decals">
           <div className="decals--container">
-            {snap.decals.map((decal) => (
-              <div
-                key={decal}
-                className="decal"
-                onClick={() => (state.selectedDecal = decal)}>
-                <img src={decal + '_thumb.png'} alt="brand" />
-              </div>
-            ))}
+        <button
+          style={{ background: snap.selectedColor }}
+          onClick={uploadImage}>
+          UPLOAD
+          <AiFillCamera size="1.3em" />
+        </button>
           </div>
         </div>
         <div className='models'>
