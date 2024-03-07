@@ -75,9 +75,9 @@ function Intro({ config }) {
 }
 
 const options = ['man', 'woman', 'children', 'shopping-bag'];
-const optionsMan = ['tshirt', 'long-sleeves-t-shirt', 'hoodie', 'tank-top'];
+const optionsMan = ['shirt', 'long-sleeves-man', 'hoodie', 'tank-top'];
 const optionsWoman = ['clothes-3', 'women', 'shirt-2', 'shirt-1', 'long-sleeve-1'];
-const optionsKid = ['shirt', 'clothing'];
+const optionsKid = ['shirt4', 'clothing'];
 const optionsSizes = ['S', 'M', 'L', 'XL', 'XXL'];
 
 function Customizer({ config }) {
@@ -89,8 +89,31 @@ function Customizer({ config }) {
   const [selectedSizesIndex, setSelectedSizesIndex] = React.useState(0);
 
 
-  function onOptionsChange() {
-    alert('holis!');
+  function onOptionsChange(index) {
+    setSelectedManIndex(0);
+    setSelectedWomanIndex(0);
+    setSelectedKidIndex(0);
+    setSelectedIndex(index);
+    let option = options[index];
+    alert(option);
+  }
+
+  function onOptionsChangeMan(index) {
+    setSelectedManIndex(index);
+    let option = optionsMan[index];
+    alert(option);
+  }
+
+  function onOptionsChangeWoman(index) {
+    setSelectedWomanIndex(index);
+    let option = optionsWoman[index];
+    alert(option);
+  }
+
+  function onOptionsChangeKid(index) {
+    setSelectedKidIndex(index);
+    let option = optionsKid[index];
+    alert(option);
   }
 
   return (
@@ -181,9 +204,9 @@ function Customizer({ config }) {
         <div className='models'>
           <ButtonGroupDropdown onOptionsChange={onOptionsChange} options={options} selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex}/>
           &nbsp;
-          {selectedIndex===0 && <ButtonGroupDropdown onOptionsChange={onOptionsChange}  text={false} options={optionsMan} selectedIndex={selectedManIndex} setSelectedIndex={setSelectedManIndex}/>}
-           {selectedIndex===1 &&<ButtonGroupDropdown onOptionsChange={onOptionsChange}  text={false} options={optionsWoman} selectedIndex={selectedWomanIndex} setSelectedIndex={setSelectedWomanIndex}/>}
-           {selectedIndex===2 &&<ButtonGroupDropdown onOptionsChange={onOptionsChange}  text={false} options={optionsKid} selectedIndex={selectedKidIndex} setSelectedIndex={setSelectedKidIndex}/>}
+          {selectedIndex===0 && <ButtonGroupDropdown onOptionsChange={onOptionsChangeMan}  text={false} options={optionsMan} selectedIndex={selectedManIndex} />}
+           {selectedIndex===1 &&<ButtonGroupDropdown onOptionsChange={onOptionsChangeWoman}  text={false} options={optionsWoman} selectedIndex={selectedWomanIndex} />}
+           {selectedIndex===2 &&<ButtonGroupDropdown onOptionsChange={onOptionsChangeKid}  text={false} options={optionsKid} selectedIndex={selectedKidIndex} />}
            </div>
         <button
           className="share"

@@ -17,8 +17,8 @@ const ButtonGroupDropdown = (props) => {
   };
 
   const handleMenuItemClick = (event, index) => {
-    props.setSelectedIndex(index);
-    props.onOptionsChange();
+    event.preventDefault();
+    props.onOptionsChange(index);
 
     setOpen(false);
   };

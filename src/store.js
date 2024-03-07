@@ -12,7 +12,7 @@ const state = proxy({
     'cyan'
   ],
   decals: ['react', 'three2', 'pmndrs'],
-  models: ['shirt', 'hoodie', 'womanShirt', 'shirtManLong', 'womanTop', 'womanShirt2', 'womanShirtLong', 'kidShirt', 'bolso', 'womanShirtDress', 'manCamiseta', 'baby'],
+  models: ['shirt', 'hoodie', 'womanShirt', 'long-sleeves-man', 'womanTop', 'womanShirt2', 'womanShirtLong', 'kidShirt', 'bolso', 'womanShirtDress', 'tank-top', 'baby'],
   selectedColor: '#EFBD4E',
   selectedDecal: 'three2',
   selectedModel: 'shirt'
