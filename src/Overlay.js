@@ -16,7 +16,7 @@ import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 // import Button from '@mui/material/Button';
 import ButtonGroupDropdown from './components/buttonGroupDropdown';
-
+import MaxWidthDialog from './components/customizeModel';
 export default function Overlay() {
   const snap = useSnapshot(state)
 
@@ -89,6 +89,7 @@ function Customizer({ config }) {
   const [selectedKidIndex, setSelectedKidIndex] = React.useState(0);
   const [selectedSizesIndex, setSelectedSizesIndex] = React.useState(0);
   const [finalShirtSnapshot, setFinalShirtSnapshot] = React.useState(null);
+  const [openModal, setOpenModal] = React.useState(false);
 
   const [file, setFile] = React.useState('');
 
@@ -148,11 +149,16 @@ function Customizer({ config }) {
                 .querySelector('canvas')
                 .toDataURL('image/png')
                 .replace('image/png', 'image/octet-stream');
-                
+
     setFinalShirtSnapshot(result);
+
+    setOpenModal(true);
   }
 
   return (
+    <>
+    <MaxWidthDialog open={openModal} setOpen={setOpenModal} />
+
     <motion.section {...config}>
       <div className="customizer">
         <div className="color-options">
@@ -278,5 +284,6 @@ function Customizer({ config }) {
         </button> */}
       </div>
     </motion.section>
+    </>
   )
 }
