@@ -49,7 +49,7 @@ export default function MaxWidthDialog(props) {
       >
         <DialogTitle>Optional sizes</DialogTitle>
         <DialogContent>
-          <img width='50%' src={`${snap.finalShirtSnapshot}`} />
+          <img className='shirtFinalResult' src={`${snap.finalShirtSnapshot}`} />
           <img width='50%' src={`${snap.selectedDecal}`} />
 
           <DialogContentText>

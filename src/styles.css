@@ -244,6 +244,12 @@ button:hover {
     box-shadow: inset -250px 0 0 0 black;
 }
 
+.shirtFinalResult {
+    object-fit: cover;
+    width: 230px;
+    height: 230px;
+}
+
 /* MOBILE ADJUSTMENTS */
 @media screen and (max-width: 600px) {
     .models {
