@@ -77,10 +77,12 @@ function Intro({ config }) {
 }
 
 const options = ['man', 'woman', 'children', 'shopping-bag'];
+const optionsMan = ['tshirt', 'long-sleeves-t-shirt', 'hoodie', 'tank-top'];
 
 function Customizer({ config }) {
   const snap = useSnapshot(state)
-  const [selectedIndex, setSelectedIndex] = React.useState(1);
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const [selectedManIndex, setSelectedManIndex] = React.useState(0);
 
 
   return (
@@ -98,6 +100,8 @@ function Customizer({ config }) {
 
         <div className="models">
           <ButtonGroupDropdown options={options} selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex}/>
+          <ButtonGroupDropdown options={optionsMan} selectedIndex={selectedManIndex} setSelectedIndex={setSelectedManIndex}/>
+
           <div className="models--container">
             <Button variant="contained"><img src="/img/man.png" /></Button>
             <Button variant="contained" ><img src="/img/woman.png" /></Button>
