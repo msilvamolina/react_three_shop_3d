@@ -40,7 +40,10 @@ const ButtonGroupDropdown = (props) => {
         ref={anchorRef}
         aria-label="Button group with a nested menu"
       >
-        <Button className='buttonsContainer' onClick={handleClick}> <img src={`/img/` + props.options[props.selectedIndex] + `.png`} /></Button>
+        <Button className='buttonsContainer' onClick={handleClick}>
+          {!props.text &&  <img src={`/img/` + props.options[props.selectedIndex] + `.png`} />}
+          {props.text &&  props.options[props.selectedIndex]}
+          </Button>
         <Button
           size="small"
           aria-controls={open ? 'split-button-menu' : undefined}
@@ -79,7 +82,8 @@ const ButtonGroupDropdown = (props) => {
                       selected={index === props.selectedIndex}
                       onClick={(event) => handleMenuItemClick(event, index)}
                     >
-                      <img src={`/img/` + option + `.png`} />
+                      {!props.text &&  <img src={`/img/` + option + `.png`} />}
+                      {props.text && option}
                     </MenuItem>
                   ))}
                 </MenuList>

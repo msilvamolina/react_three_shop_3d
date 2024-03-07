@@ -80,6 +80,7 @@ const options = ['man', 'woman', 'children', 'shopping-bag'];
 const optionsMan = ['tshirt', 'long-sleeves-t-shirt', 'hoodie', 'tank-top'];
 const optionsWoman = ['clothes-3', 'women', 'shirt-2', 'shirt-1', 'long-sleeve-1'];
 const optionsKid = ['shirt', 'clothing'];
+const optionsSizes = ['S', 'M', 'L', 'XL', 'XXL'];
 
 function Customizer({ config }) {
   const snap = useSnapshot(state)
@@ -87,6 +88,7 @@ function Customizer({ config }) {
   const [selectedManIndex, setSelectedManIndex] = React.useState(0);
   const [selectedWomanIndex, setSelectedWomanIndex] = React.useState(0);
   const [selectedKidIndex, setSelectedKidIndex] = React.useState(0);
+  const [selectedSizesIndex, setSelectedSizesIndex] = React.useState(0);
 
 
   return (
@@ -104,9 +106,10 @@ function Customizer({ config }) {
 
         <div className="models">
           <ButtonGroupDropdown options={options} selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex}/>
-          {selectedIndex===0 && <ButtonGroupDropdown options={optionsMan} selectedIndex={selectedManIndex} setSelectedIndex={setSelectedManIndex}/>}
-           {selectedIndex===1 &&<ButtonGroupDropdown options={optionsWoman} selectedIndex={selectedWomanIndex} setSelectedIndex={setSelectedWomanIndex}/>}
-           {selectedIndex===2 &&<ButtonGroupDropdown options={optionsKid} selectedIndex={selectedKidIndex} setSelectedIndex={setSelectedKidIndex}/>}
+          {selectedIndex===0 && <ButtonGroupDropdown text={false} options={optionsMan} selectedIndex={selectedManIndex} setSelectedIndex={setSelectedManIndex}/>}
+           {selectedIndex===1 &&<ButtonGroupDropdown text={false} options={optionsWoman} selectedIndex={selectedWomanIndex} setSelectedIndex={setSelectedWomanIndex}/>}
+           {selectedIndex===2 &&<ButtonGroupDropdown text={false} options={optionsKid} selectedIndex={selectedKidIndex} setSelectedIndex={setSelectedKidIndex}/>}
+           {<ButtonGroupDropdown text={true} options={optionsSizes} selectedIndex={selectedSizesIndex} setSelectedIndex={setSelectedSizesIndex}/>}
 
           {/* <div className="models--container">
             <Button variant="contained"><img src="/img/man.png" /></Button>
