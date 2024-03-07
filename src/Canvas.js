@@ -32,7 +32,7 @@ return (
     
     eventPrefix="client">
     <ambientLight intensity={0.5} />
-    <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/potsdamer_platz_1k.hdr" />
+    <Environment preset="city" />
     
     <CameraRig>
       <Center>
@@ -139,5 +139,4 @@ function CameraRig({ children }) {
   return <group ref={group}>{children}</group>
 }
 
-useGLTF.preload('/shirt.glb')
-;['/react.png', '/three2.png', '/pmndrs.png'].forEach(useTexture.preload)
+useGLTF.preload('/shirt.glb');

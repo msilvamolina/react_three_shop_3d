@@ -6,6 +6,7 @@ import {
   AiOutlineArrowLeft
 } from 'react-icons/ai'
 import * as React from 'react';
+import { reader } from './helpers';
 
 import { useSnapshot } from 'valtio'
 import { state } from './store'
@@ -87,6 +88,7 @@ function Customizer({ config }) {
   const [selectedWomanIndex, setSelectedWomanIndex] = React.useState(0);
   const [selectedKidIndex, setSelectedKidIndex] = React.useState(0);
   const [selectedSizesIndex, setSelectedSizesIndex] = React.useState(0);
+  const [file, setFile] = React.useState('');
 
 
   function onOptionsChange(index) {
@@ -129,9 +131,17 @@ function Customizer({ config }) {
     state.selectedModel = option;
   }
 
-  function uploadImage() {
-    alert('upload image');
+  const uploadImage = () => {
+    reader(file)
+      .then((result) => {
+        handleDecals(result);
+      })
   }
+
+  function handleDecals(result) {
+    state.selectedDecal = result;
+  }
+
   return (
     <motion.section {...config}>
       <div className="customizer">
@@ -207,6 +217,12 @@ function Customizer({ config }) {
 
         <div className="decals">
           <div className="decals--container">
+          <input 
+          id="file-upload"
+          type="file"
+          accept="image/*"
+          onChange={(e) => setFile(e.target.files[0])}
+        />
         <button
           style={{ background: snap.selectedColor }}
           onClick={uploadImage}>
