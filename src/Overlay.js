@@ -98,6 +98,23 @@ function Customizer({ config }) {
           <br />
           <div className="models--container">
             <Button variant="contained"><img src="/img/tshirt.png" /></Button>
+            <Button variant="contained"><img src="/img/long-sleeves-t-shirt.png" /></Button>
+            <Button variant="contained"><img src="/img/hoodie.png" /></Button>
+            <Button variant="contained"><img src="/img/tank-top.png" /></Button>
+          </div>
+          <br />
+          <div className="models--container">
+            <Button variant="contained"><img src="/img/clothes-3.png" /></Button>
+            <Button variant="contained"><img src="/img/women.png" /></Button>
+            <Button variant="contained"><img src="/img/shirt-2.png" /></Button>
+            <Button variant="contained"><img src="/img/shirt-1.png" /></Button>
+            <Button variant="contained"><img src="/img/long-sleeve-1.png" /></Button>
+          </div>
+          <br />
+          <div className="models--container">
+            <Button variant="contained"><img src="/img/shirt.png" /></Button>
+            <Button variant="contained"><img src="/img/clothing.png" /></Button>
+       
           </div>
           <br />
           <div className="models--container">
