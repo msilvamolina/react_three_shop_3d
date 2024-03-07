@@ -14,7 +14,7 @@ const state = proxy({
   decals: ['react', 'three2', 'pmndrs'],
   models: ['shirt', 'hoodie', 'womanShirt', 'long-sleeves-man', 'womanTop', 'womanShirt2', 'womanShirtLong', 'kidShirt', 'bolso', 'womanShirtDress', 'tank-top', 'baby'],
   selectedColor: '#EFBD4E',
-  selectedDecal: 'three2',
+  selectedDecal: null,
   selectedModel: 'shirt'
 })
 

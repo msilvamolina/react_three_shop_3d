@@ -132,6 +132,9 @@ function Customizer({ config }) {
   }
 
   const uploadImage = () => {
+    if(file == '') {
+      return handleDecals(null);
+    }
     reader(file)
       .then((result) => {
         handleDecals(result);

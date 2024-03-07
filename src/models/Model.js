@@ -13,7 +13,7 @@ import { state } from '../store'
 const Model = (props) => {
 
   const snap = useSnapshot(state)
-  const texture = useTexture(`/${snap.selectedDecal}.png`)
+  const texture = useTexture(snap.selectedDecal ?? `/three2.png`)
 
   const { nodes, materials } = useGLTF(`/models/${props.model}.glb`)
   useFrame((state, delta) =>
