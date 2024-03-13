@@ -21,6 +21,8 @@ const Model = (props) => {
   )
   return snap.selectedModel === props.model && (
     <mesh
+    position={[0,0,0]}
+    rotation={[0,-0.5,0]}
     castShadow
         receiveShadow
       geometry={nodes.shirt.geometry}
@@ -29,9 +31,9 @@ const Model = (props) => {
       {...props}
       dispose={null}>
       <Decal
-        position={[0, 0.34, 0.12]}
+        position={[0, 0.30, 0.12]}
         rotation={[0, 0, 0]}
-        scale={0.15}
+        scale={0.20}
         opacity={0.7}
         map={texture}
       />
